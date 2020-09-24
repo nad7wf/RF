@@ -30,8 +30,6 @@ devtools::install_github("nad7wf/RF")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
-
 ```{r example}
 library(RF)
 library(magrittr)
@@ -43,8 +41,8 @@ row_num <- 1000
 ex <- data.frame(
     Y = runif(row_num, 30, 150),
     GE_ID = runif(row_num, 1e8, 2e8),
-    Parent_A = sample(LETTERS[1:13], row_num, replace = TRUE),
-    Parent_B = sample(LETTERS[14:26], row_num, replace = TRUE)
+    Parent_A = sample(LETTERS[1:4], row_num, replace = TRUE),
+    Parent_B = sample(LETTERS[5:8], row_num, replace = TRUE)
 ) %>%
     cbind(replicate(10, runif(row_num, 0, 1)) %>%
               as.data.frame() %>%
@@ -52,6 +50,5 @@ ex <- data.frame(
 
 # Run random forest with specified fold strategy.
 result <- RF(ex, "family")
-
-print(result)
+print(head(result))
 ```

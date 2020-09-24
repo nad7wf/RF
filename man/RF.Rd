@@ -4,10 +4,10 @@
 \alias{RF}
 \title{CV-optimized Random Forest}
 \usage{
-RF(data, cv_method)
+RF(dat, cv_method)
 }
 \arguments{
-\item{data}{a data.frame with columns "Y", "GE_ID", "Parent_A", "Parent_B", followed by one column per genetic marker.}
+\item{dat}{a data.frame with columns "Y", "GE_ID", "Parent_A", "Parent_B", followed by one column per genetic marker.}
 
 \item{cv_method}{Either an integer, specifying the number of folds, or "family" to fold according to population.}
 }
@@ -21,14 +21,16 @@ allows the user to run random forest using one population as the test set, as we
 strategies (e.g. 5-fold, 10-fold, etc.).
 }
 \examples{
+library(magrittr)
+
 set.seed(76123)
 row_num <- 1000
 
 ex <- data.frame(
     Y = runif(row_num, 30, 150),
     GE_ID = runif(row_num, 1e8, 2e8),
-    Parent_A = sample(LETTERS[1:13], row_num, replace = TRUE),
-    Parent_B = sample(LETTERS[14:26], row_num, replace = TRUE)
+    Parent_A = sample(LETTERS[1:4], row_num, replace = TRUE),
+    Parent_B = sample(LETTERS[5:8], row_num, replace = TRUE)
 ) \%>\%
     cbind(replicate(10, runif(row_num, 0, 1)) \%>\%
               as.data.frame() \%>\%
