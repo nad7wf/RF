@@ -1,5 +1,5 @@
 Package: RF
-Title: What the Package Does (One Line, Title Case)
+Title: Run Random Forest with Different Cross Validation Strategies
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Nick",
@@ -7,9 +7,16 @@ Authors@R:
            role = c("aut", "cre"),
            email = "nad7wf@umsystem.edu",
            comment = c(ORCID = "https://orcid.org/0000-0001-7536-8166"))
-Description: What the package does (one paragraph).
+Description: In plant breeding, it is common to leave one population out when training a machine learning model. This package
+            allows the user to run random forest using one population as the test set, as well as with other, more common, CV
+            strategies (e.g. leave-one-out, 5-fold, 10-fold, etc.).
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
+Imports: 
+    doParallel,
+    foreach,
+    magrittr,
+    randomForest
