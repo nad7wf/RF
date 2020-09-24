@@ -50,5 +50,10 @@ ex <- data.frame(
 
 # Run random forest with specified fold strategy.
 result <- RF(ex, "family")
-print(head(result))
 ```
+
+
+```{r}
+lapply(result, head)
+```
+
